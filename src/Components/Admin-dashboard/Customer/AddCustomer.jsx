@@ -41,7 +41,7 @@ export default function AddCustomer() {
  
   const checkEmailExists = async (email) => {
     try {
-      const response = await axios.post(`http://localhost:5000/customer/getCustomerByEmail`, email);
+      const response = await axios.post(`https://servicesync-backend.onrender.com/customer/getCustomerByEmail`, email);
       return response.data.mess;
       // console.log(response.data.mess); // Assuming the response contains a property "exists" indicating whether the email exists
     } catch (error) {
@@ -124,7 +124,7 @@ export default function AddCustomer() {
               }
               console.log("haassss!!!!")
       
-              const response = axios.post('http://localhost:5000/customer/createCustomer', data);
+              const response = axios.post('https://servicesync-backend.onrender.com/customer/createCustomer', data);
               Swal.fire({
                 title: 'Account Created Successfully',
                 text: 'BookMyService Got Your Back',

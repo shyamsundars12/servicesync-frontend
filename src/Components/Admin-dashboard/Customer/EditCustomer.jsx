@@ -11,7 +11,7 @@ import axios from 'axios';
 const EditCustomer = (props) => {
   const checkEmailExists = async (email) => {
     try {
-      const response = await axios.post(`http://localhost:5000/customer/getCustomerByEmail`, email);
+      const response = await axios.post(`https://servicesync-backend.onrender.com/customer/getCustomerByEmail`, email);
       return response.data.mess;
       // console.log(response.data.mess); // Assuming the response contains a property "exists" indicating whether the email exists
     } catch (error) {
@@ -31,7 +31,7 @@ const EditCustomer = (props) => {
     };
 
 
-    axios.post(`http://localhost:5000/customer/getCustomerById`, data)
+    axios.post(`https://servicesync-backend.onrender.com/customer/getCustomerById`, data)
       .then((response) => {
         console.log(response.data)
         setuser(response.data);
@@ -158,7 +158,7 @@ const EditCustomer = (props) => {
             address: add
           }
 
-          const response = await axios.post('http://localhost:5000/customer/updateCustomer', data);
+          const response = await axios.post('https://servicesync-backend.onrender.com/customer/updateCustomer', data);
 
           Swal.fire({
             title: 'Updated',

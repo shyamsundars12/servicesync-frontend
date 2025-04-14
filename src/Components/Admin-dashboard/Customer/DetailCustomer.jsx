@@ -12,7 +12,7 @@ const DetailCustomer = () => {
 
   useEffect(() => {
     axios
-      .post(`http://localhost:5000/customer/getCustomerById`, data)
+      .post(`https://servicesync-backend.onrender.com/customer/getCustomerById`, data)
       .then((response) => {
         setUser(response.data);
       })

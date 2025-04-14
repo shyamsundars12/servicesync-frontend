@@ -42,7 +42,7 @@ const CustAddser = () => {
             const data = {
                 _id: localStorage.getItem('id')
             };
-            axios.post(`http://localhost:5000/customer/getCustomerById`, data)
+            axios.post(`https://servicesync-backend.onrender.com/customer/getCustomerById`, data)
                 .then((response) => {
 
                     if (response?.data[0]?.cart?.serList == '') {
@@ -107,7 +107,7 @@ const CustAddser = () => {
             }
             try {
 
-                axios.post(`http://localhost:5000/order/checkAvailability`, data)
+                axios.post(`https://servicesync-backend.onrender.com/order/checkAvailability`, data)
                     .then((response) => {
                         if (!response.data.available) {
                             Swal.fire({
@@ -120,7 +120,7 @@ const CustAddser = () => {
                         }
 
                         // Proceed with adding service to cart
-                        axios.post(`http://localhost:5000/customer/addService`, data)
+                        axios.post(`https://servicesync-backend.onrender.com/customer/addService`, data)
                             .then((response) => {
                                 Swal.fire({
                                     title: 'Service Added To Cart',
@@ -192,7 +192,7 @@ const CustAddser = () => {
         const data = {
             _id: localStorage.getItem('id')
         };
-        axios.post(`http://localhost:5000/customer/getCustomerById`, data)
+        axios.post(`https://servicesync-backend.onrender.com/customer/getCustomerById`, data)
             .then((response) => {
                 // console.log(response.data[0].cart.serList )
                 if (response?.data[0]?.cart?.serList == '') {
@@ -310,7 +310,7 @@ const CustAddser = () => {
             }
             try {
 
-                axios.post(`http://localhost:5000/customer/AddService`, data)
+                axios.post(`https://servicesync-backend.onrender.com/customer/AddService`, data)
                     .then((response) => {
 
                         console.log(response.data)
@@ -400,7 +400,7 @@ const CustAddser = () => {
     }
     useEffect(() => {
 
-        axios.post(`http://localhost:5000/service/getService`)
+        axios.post(`https://servicesync-backend.onrender.com/service/getService`)
             .then((response) => {
                 // Set the fetched customer data in the state
                 // setCustomers(response.data);

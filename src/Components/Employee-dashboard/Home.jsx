@@ -44,7 +44,7 @@ const Home = (props) => {
     const data = {
       "empId": localStorage.getItem('id')
     };
-    axios.post(`http://localhost:5000/employee/getTodaySchedules`, data)
+    axios.post(`https://servicesync-backend.onrender.com/employee/getTodaySchedules`, data)
       .then((response) => {
         if (response.data.length != 0) {
           setToday(response?.data?.length);
@@ -59,7 +59,7 @@ const Home = (props) => {
 
         console.error('Error fetching customer data:', error);
       });
-    axios.post(`http://localhost:5000/employee/getUpcomingSchedules`, data)
+    axios.post(`https://servicesync-backend.onrender.com/employee/getUpcomingSchedules`, data)
       .then((response) => {
 
         setUpcoming(response?.data?.length);
@@ -71,7 +71,7 @@ const Home = (props) => {
 
         console.error('Error fetching customer data:', error);
       });
-    axios.post(`http://localhost:5000/employee/completed`, data)
+    axios.post(`https://servicesync-backend.onrender.com/employee/completed`, data)
       .then((response) => {
 
         setCompleted(response?.data?.length);
@@ -83,7 +83,7 @@ const Home = (props) => {
 
         console.error('Error fetching customer data:', error);
       });
-    axios.post(`http://localhost:5000/employee/avgRating`, data)
+    axios.post(`https://servicesync-backend.onrender.com/employee/avgRating`, data)
       .then((response) => {
 
         if (response?.data?.rating == -1)
@@ -113,7 +113,7 @@ const Home = (props) => {
     if (localStorage.getItem('role') === md5("Employee")) {
       setIsLoggedIn(true);
     
-      // axios.post(`http://localhost:5000/employee/getEmployeeById`, data)
+      // axios.post(`https://servicesync-backend.onrender.com/employee/getEmployeeById`, data)
       //   .then((response) => {
 
       //    if(response)
@@ -131,7 +131,7 @@ const Home = (props) => {
   useEffect(() => {
     // Fetch active services
     axios
-      .post("http://localhost:5000/order/getActiveService")
+      .post("https://servicesync-backend.onrender.com/order/getActiveService")
       .then((response) => {
         console.log(response.data);
         setorder(response?.data);
@@ -143,7 +143,7 @@ const Home = (props) => {
           };
           console.log(data)
           axios
-            .post("http://localhost:5000/order/getAddOns", data)
+            .post("https://servicesync-backend.onrender.com/order/getAddOns", data)
             .then((response) => {
               console.log(response.data);
               setgetaddon(response.data.addOnList);
@@ -167,7 +167,7 @@ const Home = (props) => {
     try {
 
 
-      axios.post("http://localhost:5000/order/getOrderById", item)
+      axios.post("https://servicesync-backend.onrender.com/order/getOrderById", item)
         .then((response) => {
           console.log(response.data)
           // setorder(response.data)
@@ -192,7 +192,7 @@ const Home = (props) => {
     try {
 
 
-      axios.post("http://localhost:5000/order/sendOTP", data)
+      axios.post("https://servicesync-backend.onrender.com/order/sendOTP", data)
         .then((response) => {
           console.log("ok")
 
@@ -218,7 +218,7 @@ const Home = (props) => {
     // try {
 
 
-    //   axios.post("http://localhost:5000/order/sendOTP", data)
+    //   axios.post("https://servicesync-backend.onrender.com/order/sendOTP", data)
     //     .then((response) => {
 
     //       if (response.status === 200) {
@@ -269,7 +269,7 @@ const Home = (props) => {
     try {
 
 
-      axios.post("http://localhost:5000/order/completeOrder", data)
+      axios.post("https://servicesync-backend.onrender.com/order/completeOrder", data)
         .then((response) => {
           // console.log("ok")
           if (response.data.message) {
@@ -316,7 +316,7 @@ const Home = (props) => {
         serId: item.serId
       };
 
-      axios.post("http://localhost:5000/addOn/getAddOnBySerId", data)
+      axios.post("https://servicesync-backend.onrender.com/addOn/getAddOnBySerId", data)
         .then((response) => {
           console.log(response.data)
 
@@ -349,7 +349,7 @@ const Home = (props) => {
 
 
 
-      axios.post("http://localhost:5000/order/addAddons", data)
+      axios.post("https://servicesync-backend.onrender.com/order/addAddons", data)
         .then((response) => {
           console.log(response.data)
 
@@ -381,7 +381,7 @@ const Home = (props) => {
   //   try {
 
 
-  //     axios.post("http://localhost:5000/order/getAddOns", data)
+  //     axios.post("https://servicesync-backend.onrender.com/order/getAddOns", data)
   //       .then((response) => {
   //         // console.log(response.data.addOnList)
   //         setgetaddon(response.data.addOnList)
@@ -403,7 +403,7 @@ const Home = (props) => {
 
 
 
-      axios.post("http://localhost:5000/order/removeAddOns", data)
+      axios.post("https://servicesync-backend.onrender.com/order/removeAddOns", data)
         .then((response) => {
 
 

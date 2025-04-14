@@ -27,7 +27,7 @@ const About = () => {
             const data = {
                 _id: localStorage.getItem('id')
             };
-            axios.post(`http://localhost:5000/customer/getCustomerById`, data)
+            axios.post(`https://servicesync-backend.onrender.com/customer/getCustomerById`, data)
                 .then((response) => {
                     if (response?.data[0]?.cart?.serList == '') {
                         setCartActive(false);

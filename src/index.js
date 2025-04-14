@@ -45,7 +45,7 @@ const initializePayPalButtons = (totalAmount) => {
         // Create the order in the backend
         createOrder: async (data, actions) => {
             try {
-                const response = await fetch("http://localhost:5000/order/createCheckout", {
+                const response = await fetch("https://servicesync-backend.onrender.com/order/createCheckout", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ const initializePayPalButtons = (totalAmount) => {
         // Handle approval of the payment
         onApprove: async (data, actions) => {
             try {
-                const response = await fetch(`http://localhost:5000/order/success?token=${data.orderID}`, {
+                const response = await fetch(`https://servicesync-backend.onrender.com/order/success?token=${data.orderID}`, {
                     method: "POST",
                 });
 

@@ -32,13 +32,13 @@ const Employee = () => {
             _id: id
         };
         if (window.confirm('Do you want to inActive the Employee?')) {
-            axios.post(`http://localhost:5000/employee/deleteEmployee`, data)
+            axios.post(`https://servicesync-backend.onrender.com/employee/deleteEmployee`, data)
                 .then((response) => {
                     // Set the fetched customer data in the state
                     // setCustomers(response.data);
                     console.log(response.data)
                     //   Fetc();
-                    axios.post(`http://localhost:5000/employee/getEmployee`)
+                    axios.post(`https://servicesync-backend.onrender.com/employee/getEmployee`)
                         .then((response) => {
                             // Set the fetched customer data in the state
                             // setCustomers(response.data);
@@ -61,13 +61,13 @@ const Employee = () => {
             _id: id
         };
         if (window.confirm('Do you want to Active the employee?')) {
-            axios.post(`http://localhost:5000/employee/activeEmployee`, data)
+            axios.post(`https://servicesync-backend.onrender.com/employee/activeEmployee`, data)
                 .then((response) => {
                     // Set the fetched customer data in the state
                     // setCustomers(response.data);
                     console.log(response.data)
                     //   Fetc();
-                    axios.post(`http://localhost:5000/employee/getEmployee`)
+                    axios.post(`https://servicesync-backend.onrender.com/employee/getEmployee`)
                         .then((response) => {
                             // Set the fetched customer data in the state
                             // setCustomers(response.data);
@@ -91,7 +91,7 @@ const Employee = () => {
 
     useEffect(() => {
   
-        axios.post(`http://localhost:5000/Employee/getEmployee`)
+        axios.post(`https://servicesync-backend.onrender.com/Employee/getEmployee`)
             .then((response) => {
         
                 empdatachange(response.data);

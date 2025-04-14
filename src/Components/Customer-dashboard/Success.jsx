@@ -27,7 +27,7 @@ const Success = () => {
         const data = {
             custId: id
         }
-        axios.post("http://localhost:5000/customer/removeCart", data);
+        axios.post("https://servicesync-backend.onrender.com/customer/removeCart", data);
 
         Swal.fire({
             title: 'Success',

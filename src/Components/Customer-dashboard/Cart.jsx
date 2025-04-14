@@ -50,7 +50,7 @@ const Cart = () => {
         // Replace with the actual customer ID
         // forceUpdate();
 
-        axios.post("http://localhost:5000/Customer/Cart", { custId: customerId })
+        axios.post("https://servicesync-backend.onrender.com/Customer/Cart", { custId: customerId })
             .then((response) => {
                 console.log(response.data)
                 if (response.data.message === false) {
@@ -71,7 +71,7 @@ const Cart = () => {
         const promises = cartData.map(async (item) => {
             const serviceDetails = item?.serviceDetails || {}; // Ensure serviceDetails exists
     
-            return axios.post("http://localhost:5000/service/getServiceById/", item)
+            return axios.post("https://servicesync-backend.onrender.com/service/getServiceById/", item)
                 .then((response) => {
                     if (response.data) {
                         return {
@@ -180,7 +180,7 @@ const Cart = () => {
             // Check service availability for each item
             const availabilityChecks = await Promise.all(cartItems.map(async (item) => {
                 try {
-                    const check = await axios.post("http://localhost:5000/order/checkAvailability", {
+                    const check = await axios.post("https://servicesync-backend.onrender.com/order/checkAvailability", {
                         serId: item.serId,
                         date: item.date,
                         time: item.time
@@ -247,7 +247,7 @@ const Cart = () => {
 
             try {
                 // Create order on our backend first
-                const response = await axios.post("http://localhost:5000/order/createCheckout", orderData);
+                const response = await axios.post("https://servicesync-backend.onrender.com/order/createCheckout", orderData);
                 
                 if (!response.data || !response.data.orderId) {
                     throw new Error("Invalid response from server");
@@ -270,14 +270,14 @@ const Cart = () => {
                     handler: async function (response) {
                         try {
                             // Verify payment with our backend
-                            const captureResponse = await axios.post("http://localhost:5000/order/success", {
+                            const captureResponse = await axios.post("https://servicesync-backend.onrender.com/order/success", {
                                 orderId: response.razorpay_order_id,
                                 paymentId: response.razorpay_payment_id
                             });
 
                             if (captureResponse.data.success) {
                                 // Clear cart
-                                await axios.post("http://localhost:5000/customer/removeCart", { custId: customerId });
+                                await axios.post("https://servicesync-backend.onrender.com/customer/removeCart", { custId: customerId });
                                 
                                 // Store order IDs for success page
                                 localStorage.setItem("orderIds", JSON.stringify(captureResponse.data.orders));
@@ -356,7 +356,7 @@ const Cart = () => {
             date: item.date
                     };
 
-                    const response = await axios.post("http://localhost:5000/customer/removeService", data);
+                    const response = await axios.post("https://servicesync-backend.onrender.com/customer/removeService", data);
                     
                     if (response.data.message) {
                     Swal.fire({
@@ -387,7 +387,7 @@ const Cart = () => {
         try {
             // Replace with the actual customer ID
 
-            axios.post("http://localhost:5000/Customer/getCustomerById", id)
+            axios.post("https://servicesync-backend.onrender.com/Customer/getCustomerById", id)
                 .then((response) => {
                     setUser(response.data)
                     // const address = {
@@ -447,7 +447,7 @@ const Cart = () => {
             // Check service availability for each item
             const availabilityChecks = await Promise.all(cartItems.map(async (item) => {
                 try {
-                    const check = await axios.post("http://localhost:5000/order/checkAvailability", {
+                    const check = await axios.post("https://servicesync-backend.onrender.com/order/checkAvailability", {
                         serId: item.serId,
                         date: item.date,
                         time: item.time
@@ -506,11 +506,11 @@ const Cart = () => {
                 totalAmount: totalAmount
             };
 
-            const response = await axios.post("http://localhost:5000/order/createCheckout", orderData);
+            const response = await axios.post("https://servicesync-backend.onrender.com/order/createCheckout", orderData);
             
             if (response.data.success) {
                 // Clear cart
-                await axios.post("http://localhost:5000/customer/removeCart", { custId: customerId });
+                await axios.post("https://servicesync-backend.onrender.com/customer/removeCart", { custId: customerId });
                 
                 // Store order IDs for success page
                 localStorage.setItem("orderIds", JSON.stringify(response.data.orders));
@@ -586,7 +586,7 @@ const Cart = () => {
 
                     // Check service availability
                     const availabilityChecks = await Promise.all(cartItems.map(async (item) => {
-                        const check = await axios.post("http://localhost:5000/order/checkAvailability", {
+                        const check = await axios.post("https://servicesync-backend.onrender.com/order/checkAvailability", {
                             serId: item.serId,
                             date: item.date,
                             time: item.time
@@ -620,7 +620,7 @@ const Cart = () => {
                         payment_method: 'PayPal'
                     };
 
-                    const response = await axios.post("http://localhost:5000/order/createCheckout", orderData);
+                    const response = await axios.post("https://servicesync-backend.onrender.com/order/createCheckout", orderData);
                     
                     if (!response.data || !response.data.id) {
                         throw new Error("Invalid response from server");
@@ -651,14 +651,14 @@ const Cart = () => {
     
             onApprove: async (data, actions) => {
                 try {
-                    const captureResponse = await axios.post("http://localhost:5000/order/success", {
+                    const captureResponse = await axios.post("https://servicesync-backend.onrender.com/order/success", {
                         orderId: localStorage.getItem("tempOrderId"),
                         paymentId: data.orderID
                     });
 
                     if (captureResponse.data.success) {
                         // Clear cart
-                        await axios.post("http://localhost:5000/customer/removeCart", { custId: customerId });
+                        await axios.post("https://servicesync-backend.onrender.com/customer/removeCart", { custId: customerId });
                         
                         // Store order IDs for success page
                         localStorage.setItem("orderIds", JSON.stringify(captureResponse.data.orders));
@@ -682,7 +682,7 @@ const Cart = () => {
                 console.error("PayPal error:", err);
                 const tempOrderId = localStorage.getItem("tempOrderId");
                 if (tempOrderId) {
-                    axios.post("http://localhost:5000/order/failed", { orderId: tempOrderId });
+                    axios.post("https://servicesync-backend.onrender.com/order/failed", { orderId: tempOrderId });
                 }
                 Swal.fire({
                     title: "Payment Error",
@@ -694,7 +694,7 @@ const Cart = () => {
             onCancel: () => {
                 const tempOrderId = localStorage.getItem("tempOrderId");
                 if (tempOrderId) {
-                    axios.post("http://localhost:5000/order/failed", { orderId: tempOrderId });
+                    axios.post("https://servicesync-backend.onrender.com/order/failed", { orderId: tempOrderId });
                 }
                 Swal.fire({
                     title: "Payment Cancelled",

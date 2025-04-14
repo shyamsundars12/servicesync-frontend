@@ -58,7 +58,7 @@ const Today = () => {
                 const data = {
                     id: item._id
                 };
-                axios.post(`http://localhost:5000/order/cancelOrder`, data)
+                axios.post(`https://servicesync-backend.onrender.com/order/cancelOrder`, data)
                     .then((response) => {
                         if (response.data.message === true) {
                             Swal.fire({
@@ -119,7 +119,7 @@ const Today = () => {
             const data = {
                 _id: localStorage.getItem('id')
             };
-            axios.post(`http://localhost:5000/employee/getEmployeeById`, data)
+            axios.post(`https://servicesync-backend.onrender.com/employee/getEmployeeById`, data)
                 .then((response) => {
 
                     if (response?.data[0]?.cart?.serList == '') {
@@ -137,7 +137,7 @@ const Today = () => {
         empId: localStorage.getItem('id')
     }
     useEffect(() => {
-        axios.post(`http://localhost:5000/order/getOrderUpcomingByEmpId`, data)
+        axios.post(`https://servicesync-backend.onrender.com/order/getOrderUpcomingByEmpId`, data)
             .then((response) => {
                 console.log(response.data)
                 // console.log(response.data.pendingOrders)

@@ -34,7 +34,7 @@ const EmpSer = () => {
         setOpen(true);
         try {
 
-            axios.post("http://localhost:5000/empser/getEmpSerByEmpId/", item)
+            axios.post("https://servicesync-backend.onrender.com/empser/getEmpSerByEmpId/", item)
                 .then((response) => {
                     console.log(response.data);
                     setEmployeeServices(response.data);
@@ -59,7 +59,7 @@ const EmpSer = () => {
         setOpenrem(true);
         try {
 
-            axios.post("http://localhost:5000/empser/getEmpSerByEmpId/", item)
+            axios.post("https://servicesync-backend.onrender.com/empser/getEmpSerByEmpId/", item)
                 .then((response) => {
                     console.log(response.data);
                     setEmployeeServicesrem(response.data);
@@ -85,7 +85,7 @@ const EmpSer = () => {
         }
         try {
 
-            axios.post("http://localhost:5000/empser/removeService/", datarem)
+            axios.post("https://servicesync-backend.onrender.com/empser/removeService/", datarem)
                 .then((response) => {
                     
             
@@ -116,7 +116,7 @@ const EmpSer = () => {
         setOpendet(true);
         try {
 
-            axios.post("http://localhost:5000/empser/getEmpSerByEmpId/", item)
+            axios.post("https://servicesync-backend.onrender.com/empser/getEmpSerByEmpId/", item)
                 .then((response) => {
                     console.log(response.data);
                     setEmployeeServicesdet(response.data);
@@ -147,7 +147,7 @@ const EmpSer = () => {
         }
         try {
 
-            axios.post("http://localhost:5000/empser/addService/", data)
+            axios.post("https://servicesync-backend.onrender.com/empser/addService/", data)
                 .then((response) => {
                 console.log(response.data);
                 Swal.fire({
@@ -190,7 +190,7 @@ const EmpSer = () => {
     };
     useEffect(() => {
 
-        axios.post('http://localhost:5000/service/getService')
+        axios.post('https://servicesync-backend.onrender.com/service/getService')
             .then((response) => {
                 console.log(response.data);
                 setService(response.data);
@@ -211,7 +211,7 @@ const EmpSer = () => {
 
     useEffect(() => {
 
-        axios.post('http://localhost:5000/Employee/getEmployee')
+        axios.post('https://servicesync-backend.onrender.com/Employee/getEmployee')
             .then((response) => {
 
                 empdatachange(response.data);

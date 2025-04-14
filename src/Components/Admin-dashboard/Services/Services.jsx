@@ -29,10 +29,10 @@ const Services = () => {
             _id: item._id
         };
         if (window.confirm('Do you want to inActive the Service?')) {
-            axios.post(`http://localhost:5000/service/InactiveService`, data)
+            axios.post(`https://servicesync-backend.onrender.com/service/InactiveService`, data)
                 .then((response) => {
                     console.log(response.data);
-                    axios.post(`http://localhost:5000/service/getService`)
+                    axios.post(`https://servicesync-backend.onrender.com/service/getService`)
                         .then((response) => {
                             empdatachange(response.data);
                         })
@@ -51,10 +51,10 @@ const Services = () => {
             _id: item._id
         };
         if (window.confirm('Do you want to Active the Service?')) {
-            axios.post(`http://localhost:5000/service/ActiveService`, data)
+            axios.post(`https://servicesync-backend.onrender.com/service/ActiveService`, data)
                 .then((response) => {
                     console.log(response.data);
-                    axios.post(`http://localhost:5000/service/getService`)
+                    axios.post(`https://servicesync-backend.onrender.com/service/getService`)
                         .then((response) => {
                             empdatachange(response.data);
                         })
@@ -69,7 +69,7 @@ const Services = () => {
     };
 
     useEffect(() => {
-        axios.post(`http://localhost:5000/service/getService`)
+        axios.post(`https://servicesync-backend.onrender.com/service/getService`)
             .then((response) => {
                 empdatachange(response.data);
             })

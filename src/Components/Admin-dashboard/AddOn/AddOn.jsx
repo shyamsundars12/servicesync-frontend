@@ -15,6 +15,7 @@ import Card from 'react-bootstrap/Card';
 
 import DialogContentText from '@mui/material/DialogContentText';
 import TextField from "@mui/material/TextField";
+const BASE_URL = "https://servicesync-backend.onrender.com";
 
 const rowsPerPageOptions = [4, 5, 7];
 
@@ -98,7 +99,7 @@ const AddOn = () => {
                 serId: item._id
             };
 
-            axios.post("http://localhost:5000/addOn/getAddOnBySerId", data)
+            axios.post(`${BASE_URL}/addOn/getAddOnBySerId`, data)
                 .then((response) => {
                     console.log(response.data.addOns);
                     if (response.data.message != false) {
@@ -124,7 +125,7 @@ const AddOn = () => {
         console.log(selectAddOn)
         try {
 
-            axios.post("http://localhost:5000/addOn/removeAddOn", datarem)
+            axios.post(`${BASE_URL}/addOn/removeAddOn`, datarem)
                 .then((response) => {
 
 
@@ -157,7 +158,7 @@ const AddOn = () => {
                 serId: item._id
             };
 
-            axios.post("http://localhost:5000/addOn/getAddOnBySerId", data)
+            axios.post(`${BASE_URL}/addOn/getAddOnBySerId`, data)
                 .then((response) => {
                     console.log(response.data.addOns);
                     if (response.data.message != false) {
@@ -186,7 +187,7 @@ const AddOn = () => {
     };
     useEffect(() => {
 
-        axios.post('http://localhost:5000/service/getService')
+        axios.post(`${BASE_URL}/service/getService`)
             .then((response) => {
                 console.log(response.data);
                 setService(response.data);
@@ -210,7 +211,7 @@ const AddOn = () => {
         console.log(data)
         try {
 
-            axios.post("http://localhost:5000/addOn/addAddOns", data, {
+            axios.post(`${BASE_URL}/addOn/addAddOns`, data, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -251,7 +252,7 @@ const AddOn = () => {
 
     useEffect(() => {
 
-        axios.post('http://localhost:5000/service/getService')
+        axios.post(`${BASE_URL}/service/getService`)
             .then((response) => {
 
                 serDataChange(response.data);

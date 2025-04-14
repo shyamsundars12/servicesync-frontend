@@ -68,7 +68,7 @@ const Dashboard = () => {
   // const [empdata, empdatachange] = useState([])
   useEffect(() => {
 
-    axios.post(`http://localhost:5000/customer/getActiveCustomer`)
+    axios.post(`https://servicesync-backend.onrender.com/customer/getActiveCustomer`)
       .then((response) => {
 
         setcount(response.data.length);
@@ -79,7 +79,7 @@ const Dashboard = () => {
 
         console.error('Error fetching customer data:', error);
       });
-    axios.post(`http://localhost:5000/customer/getInActiveCustomer`)
+    axios.post(`https://servicesync-backend.onrender.com/customer/getInActiveCustomer`)
       .then((response) => {
 
         insetcount(response.data.length);
@@ -91,7 +91,7 @@ const Dashboard = () => {
 
         console.error('Error fetching customer data:', error);
       });
-    axios.post(`http://localhost:5000/Employee/getActiveEmployee`)
+    axios.post(`https://servicesync-backend.onrender.com/Employee/getActiveEmployee`)
       .then((response) => {
 
         setemp(response.data.length);
@@ -102,7 +102,7 @@ const Dashboard = () => {
 
         console.error('Error fetching customer data:', error);
       });
-    axios.post(`http://localhost:5000/Employee/getInActiveEmployee`)
+    axios.post(`https://servicesync-backend.onrender.com/Employee/getInActiveEmployee`)
       .then((response) => {
 
         setinemp(response.data.length);
@@ -117,7 +117,7 @@ const Dashboard = () => {
 
   }, []);
   useEffect(() => {
-    axios.post(`http://localhost:5000/order/getActiveService`)
+    axios.post(`https://servicesync-backend.onrender.com/order/getActiveService`)
       .then((response) => {
 
         console.log(response.data)

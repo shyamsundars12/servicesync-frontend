@@ -27,7 +27,7 @@ const Failed = () => {
         const data = {
             orderId:id
         }
-        axios.post("http://localhost:5000/order/failed", data);
+        axios.post("https://servicesync-backend.onrender.com/order/failed", data);
 
         Swal.fire({
             title: 'payment failed',

@@ -43,7 +43,7 @@ function ServiceCreationForm() {
     data.append('image', formData.image);
 
     try {
-      const response = await axios.post('http://localhost:5000/service/createService', data, {
+      const response = await axios.post('https://servicesync-backend.onrender.com/service/createService', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
