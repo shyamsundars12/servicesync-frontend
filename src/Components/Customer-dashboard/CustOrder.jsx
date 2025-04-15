@@ -327,7 +327,7 @@ const CustOrder = () => {
                 <Button 
                     variant="contained" 
                     color="primary"
-                    onClick={() => navigate('/Customer/Login')}
+                    onClick={() => navigate('/Login')}
                 >
                     Login
                 </Button>
