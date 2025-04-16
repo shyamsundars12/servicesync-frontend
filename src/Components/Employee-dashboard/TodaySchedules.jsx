@@ -59,7 +59,7 @@ const Today = (props) => {
                 const data = {
                     id: item._id
                 };
-                axios.post(`https://servicesync-backend.onrender.com/order/cancelOrder`, data)
+                axios.post(`https://servicesync-backend.vercel.app/order/cancelOrder`, data)
                     .then((response) => {
                         if (response.data.message === true) {
                             Swal.fire({
@@ -120,7 +120,7 @@ const Today = (props) => {
             const data = {
                 _id: localStorage.getItem('id')
             };
-            axios.post(`https://servicesync-backend.onrender.com/employee/getEmployeeById`, data)
+            axios.post(`https://servicesync-backend.vercel.app/employee/getEmployeeById`, data)
                 .then((response) => {
 
                     if (response?.data[0]?.cart?.serList == '') {
@@ -138,7 +138,7 @@ const Today = (props) => {
         empId: localStorage.getItem('id')
     }
     useEffect(() => {
-        axios.post(`https://servicesync-backend.onrender.com/order/getOrderTodayByEmpId`, data)
+        axios.post(`https://servicesync-backend.vercel.app/order/getOrderTodayByEmpId`, data)
             .then((response) => {
                 console.log(response.data)
                 // console.log(response.data.pendingOrders)
@@ -156,7 +156,7 @@ const Today = (props) => {
         try {
 
 
-            axios.post("https://servicesync-backend.onrender.com/order/activeService",data)
+            axios.post("https://servicesync-backend.vercel.app/order/activeService",data)
                 .then((response) => {
                     console.log(response)
                     setActiveHomeState(true);

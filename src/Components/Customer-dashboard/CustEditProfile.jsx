@@ -13,7 +13,7 @@ const CustEditProfile = () => {
     const [user, setuser] = useState({})
     useEffect(() => {
         try {
-            axios.post("https://servicesync-backend.onrender.com/Customer/getCustomerById", data)
+            axios.post("https://servicesync-backend.vercel.app/Customer/getCustomerById", data)
                 .then((response) => {
                     console.log(response.data)
                     const userData = response.data[0] || {}; // Use the first item if it's an array
@@ -73,7 +73,7 @@ const CustEditProfile = () => {
 
         try {
 
-            axios.post("https://servicesync-backend.onrender.com/customer/updateCustomer", data1)
+            axios.post("https://servicesync-backend.vercel.app/customer/updateCustomer", data1)
                 .then((response) => {
                     console.log(response.data);
                     Swal.fire({

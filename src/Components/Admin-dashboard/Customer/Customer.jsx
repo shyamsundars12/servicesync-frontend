@@ -62,13 +62,13 @@ const Customer = () => {
             _id: id
         };
         if (window.confirm('Do you want to inActive the Customer?')) {
-            axios.post(`https://servicesync-backend.onrender.com/customer/deleteCustomer`, data)
+            axios.post(`https://servicesync-backend.vercel.app/customer/deleteCustomer`, data)
                 .then((response) => {
                     // Set the fetched customer data in the state
                     // setCustomers(response.data);
                     console.log(response.data)
                     //   Fetc();
-                    axios.post(`https://servicesync-backend.onrender.com/customer/getCustomer`)
+                    axios.post(`https://servicesync-backend.vercel.app/customer/getCustomer`)
                         .then((response) => {
                             // Set the fetched customer data in the state
                             // setCustomers(response.data);
@@ -91,13 +91,13 @@ const Customer = () => {
             _id: id
         };
         if (window.confirm('Do you want to Active the Customer?')) {
-            axios.post(`https://servicesync-backend.onrender.com/customer/activeCustomer`, data)
+            axios.post(`https://servicesync-backend.vercel.app/customer/activeCustomer`, data)
                 .then((response) => {
                     // Set the fetched customer data in the state
                     // setCustomers(response.data);
                     console.log(response.data)
                     //   Fetc();
-                    axios.post(`https://servicesync-backend.onrender.com/customer/getCustomer`)
+                    axios.post(`https://servicesync-backend.vercel.app/customer/getCustomer`)
                         .then((response) => {
                             // Set the fetched customer data in the state
                             // setCustomers(response.data);
@@ -121,7 +121,7 @@ const Customer = () => {
 
         useEffect(() => {
     
-            axios.post(`https://servicesync-backend.onrender.com/customer/getCustomer`)
+            axios.post(`https://servicesync-backend.vercel.app/customer/getCustomer`)
                 .then((response) => {
             
                     empdatachange(response.data);

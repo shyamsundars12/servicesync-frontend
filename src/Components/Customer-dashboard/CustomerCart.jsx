@@ -15,7 +15,7 @@ function Cart() {
 
     useEffect(() => {
 
-        axios.post(`https://servicesync-backend.onrender.com/service/getService`)
+        axios.post(`https://servicesync-backend.vercel.app/service/getService`)
             .then((response) => {
                 // Set the fetched customer data in the state
                 // setCustomers(response.data);
@@ -64,7 +64,7 @@ function Cart() {
 
         try {
 
-            const response = await axios.post('https://servicesync-backend.onrender.com/Customer/addServices', requestData);
+            const response = await axios.post('https://servicesync-backend.vercel.app/Customer/addServices', requestData);
 
             if (response) {
 

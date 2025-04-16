@@ -11,7 +11,7 @@ import axios from 'axios';
 const EditEmployee = (props) => {
   const checkEmailExists = async (email) => {
     try {
-      const response = await axios.post(`https://servicesync-backend.onrender.com/employee/getEmployeeByEmail`, email);
+      const response = await axios.post(`https://servicesync-backend.vercel.app/employee/getEmployeeByEmail`, email);
       return response.data.mess;
       // console.log(response.data.mess); // Assuming the response contains a property "exists" indicating whether the email exists
     } catch (error) {
@@ -31,7 +31,7 @@ const EditEmployee = (props) => {
     };
 
 
-    axios.post(`https://servicesync-backend.onrender.com/employee/getEmployeeById`, data)
+    axios.post(`https://servicesync-backend.vercel.app/employee/getEmployeeById`, data)
       .then((response) => {
         console.log(response.data)
         setEmail(response.data.email) 
@@ -154,7 +154,7 @@ const EditEmployee = (props) => {
             address: add
           }
 
-          const response = await axios.post('https://servicesync-backend.onrender.com/employee/updateEmployee', data);
+          const response = await axios.post('https://servicesync-backend.vercel.app/employee/updateEmployee', data);
           Swal.fire({
             text: 'Employee Updated Successfully',
             icon: 'success',

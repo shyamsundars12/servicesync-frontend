@@ -19,7 +19,7 @@ const Contact = () => {
         if (localStorage.getItem('role') != null) {
             setIsLoggedIn(true);
             const data = { _id: localStorage.getItem('id') };
-            axios.post(`https://servicesync-backend.onrender.com/customer/getCustomerById`, data)
+            axios.post(`https://servicesync-backend.vercel.app/customer/getCustomerById`, data)
                 .then((response) => {
                     setCartActive(response?.data[0]?.cart?.serList !== '');
                 });

@@ -20,7 +20,7 @@ function ServiceCreationForm() {
         };
     
     
-        axios.post(`https://servicesync-backend.onrender.com/service/getServiceById`, data)
+        axios.post(`https://servicesync-backend.vercel.app/service/getServiceById`, data)
           .then((response) => {
             console.log(response.data)
             setuser(response.data);
@@ -53,7 +53,7 @@ function ServiceCreationForm() {
         data.append('image', formData.image);
 
         try {
-            const response = await axios.post('https://servicesync-backend.onrender.com/service/updateService', data, {
+            const response = await axios.post('https://servicesync-backend.vercel.app/service/updateService', data, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

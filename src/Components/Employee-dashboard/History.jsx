@@ -65,7 +65,7 @@ const Today = () => {
                 const data = {
                     id: item._id
                 };
-                axios.post(`https://servicesync-backend.onrender.com/order/cancelOrder`, data)
+                axios.post(`https://servicesync-backend.vercel.app/order/cancelOrder`, data)
                     .then((response) => {
                         if (response.data.message === true) {
                             Swal.fire({
@@ -126,7 +126,7 @@ const Today = () => {
             const data = {
                 _id: localStorage.getItem('id')
             };
-            axios.post(`https://servicesync-backend.onrender.com/employee/getEmployeeById`, data)
+            axios.post(`https://servicesync-backend.vercel.app/employee/getEmployeeById`, data)
                 .then((response) => {
 
                     if (response?.data[0]?.cart?.serList == '') {
@@ -144,7 +144,7 @@ const Today = () => {
         empId: localStorage.getItem('id')
     }
     useEffect(() => {
-        axios.post(`https://servicesync-backend.onrender.com/order/getHistoryByEmpId`, data)
+        axios.post(`https://servicesync-backend.vercel.app/order/getHistoryByEmpId`, data)
             .then((response) => {
                 console.log(response.data)
 
@@ -160,7 +160,7 @@ const Today = () => {
             orderId: item._id
         }
 
-        axios.post(`https://servicesync-backend.onrender.com/feedback/getFeedbackByOrderId/`, data1)
+        axios.post(`https://servicesync-backend.vercel.app/feedback/getFeedbackByOrderId/`, data1)
             .then((response) => {
                 console.log(response.data);
                 setFeedbackDetails(response.data[0]);

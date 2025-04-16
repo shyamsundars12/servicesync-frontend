@@ -51,7 +51,7 @@ const Home = () => {
             const data = {
                 _id: localStorage.getItem('id')
             };
-            axios.post(`https://servicesync-backend.onrender.com/customer/getCustomerById`, data)
+            axios.post(`https://servicesync-backend.vercel.app/customer/getCustomerById`, data)
                 .then((response) => {
                     
                     console.log("response")
@@ -78,7 +78,7 @@ const Home = () => {
         const data = {
             _id:localStorage.getItem('id')
         };
-        axios.post(`https://servicesync-backend.onrender.com/customer/getCustomerById`, data)
+        axios.post(`https://servicesync-backend.vercel.app/customer/getCustomerById`, data)
             .then((response) => {
                 console.log(cartActive)
               
@@ -88,7 +88,7 @@ const Home = () => {
                     setCartActive(true)
                 }
             });
-        axios.post(`https://servicesync-backend.onrender.com/service/getService`)
+        axios.post(`https://servicesync-backend.vercel.app/service/getService`)
             .then((response) => {
                 // Set the fetched customer data in the state
                 // setCustomers(response.data);

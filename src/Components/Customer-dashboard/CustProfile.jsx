@@ -15,7 +15,7 @@ const CustProfile = () => {
   };
   useEffect(() => {
 
-    axios.post(`https://servicesync-backend.onrender.com/customer/getCustomerById`, data)
+    axios.post(`https://servicesync-backend.vercel.app/customer/getCustomerById`, data)
       .then((response) => {
 
         console.log(response.data)

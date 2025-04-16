@@ -16,7 +16,7 @@ const DetailServices = () => {
   };
   useEffect(() => {
 
-    axios.post(`https://servicesync-backend.onrender.com/service/getServiceById`, data)
+    axios.post(`https://servicesync-backend.vercel.app/service/getServiceById`, data)
       .then((response) => {
         // Set the fetched customer data in the state
         // setCustomers(response.data);

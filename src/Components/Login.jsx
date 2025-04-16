@@ -72,7 +72,7 @@ const Login = () => {
         role : role
       }
 
-      const response = await axios.post('https://servicesync-backend.onrender.com/login/checkExists', data)
+      const response = await axios.post('https://servicesync-backend.vercel.app/login/checkExists', data)
       if (response.data.message === false) {
         console.log(response.message)
         Swal.fire({
@@ -83,7 +83,7 @@ const Login = () => {
           confirmButtonText: 'Re-Enter'
         })
       } else {
-        const isValid = await axios.post('https://servicesync-backend.onrender.com/login/validate', data)
+        const isValid = await axios.post('https://servicesync-backend.vercel.app/login/validate', data)
 
         console.log(JSON.stringify(isValid))
         if (isValid.data.message === true) {

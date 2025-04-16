@@ -15,7 +15,7 @@ import Card from 'react-bootstrap/Card';
 
 import DialogContentText from '@mui/material/DialogContentText';
 import TextField from "@mui/material/TextField";
-const BASE_URL = "https://servicesync-backend.onrender.com";
+const BASE_URL = "https://servicesync-backend.vercel.app";
 
 const rowsPerPageOptions = [4, 5, 7];
 

@@ -70,7 +70,7 @@ const CustOrder = () => {
             feed_text: feedback
         }
         try {
-            axios.post("https://servicesync-backend.onrender.com/feedback/createFeedback", data)
+            axios.post("https://servicesync-backend.vercel.app/feedback/createFeedback", data)
                 .then((response) => {
                     console.log(response.data);
                     Swal.fire({
@@ -115,7 +115,7 @@ const CustOrder = () => {
 
             if (result.isConfirmed) {
             try {
-                const response = await axios.post('https://servicesync-backend.onrender.com/order/cancelOrder', {
+                const response = await axios.post('https://servicesync-backend.vercel.app/order/cancelOrder', {
                     orderId: item._id
                 });
 
@@ -160,7 +160,7 @@ const CustOrder = () => {
 
     const fetchOrders = async () => {
         try {
-            const response = await axios.post('https://servicesync-backend.onrender.com/order/getOrderByCustId/', {
+            const response = await axios.post('https://servicesync-backend.vercel.app/order/getOrderByCustId/', {
                 custId: localStorage.getItem('id')
             });
             
@@ -194,7 +194,7 @@ const CustOrder = () => {
             orderId: item._id
         }
 
-        axios.post(`https://servicesync-backend.onrender.com/feedback/getFeedbackByOrderId/`, data1)
+        axios.post(`https://servicesync-backend.vercel.app/feedback/getFeedbackByOrderId/`, data1)
             .then((response) => {
                 console.log(response.data);
                 setFeedbackDetails(response.data[0]);
@@ -224,7 +224,7 @@ const CustOrder = () => {
       
     const handleSubmitFeedback = async (order) => {
         try {
-            const response = await axios.post('https://servicesync-backend.onrender.com/feedback/createFeedback', {
+            const response = await axios.post('https://servicesync-backend.vercel.app/feedback/createFeedback', {
                 orderId: order._id,
                 custId: localStorage.getItem('id'),
                 empId: order.employeeDetails[0]._id,

@@ -32,13 +32,13 @@ const Employee = () => {
             _id: id
         };
         if (window.confirm('Do you want to inActive the Employee?')) {
-            axios.post(`https://servicesync-backend.onrender.com/employee/deleteEmployee`, data)
+            axios.post(`https://servicesync-backend.vercel.app/employee/deleteEmployee`, data)
                 .then((response) => {
                     // Set the fetched customer data in the state
                     // setCustomers(response.data);
                     console.log(response.data)
                     //   Fetc();
-                    axios.post(`https://servicesync-backend.onrender.com/employee/getEmployee`)
+                    axios.post(`https://servicesync-backend.vercel.app/employee/getEmployee`)
                         .then((response) => {
                             // Set the fetched customer data in the state
                             // setCustomers(response.data);
@@ -61,13 +61,13 @@ const Employee = () => {
             _id: id
         };
         if (window.confirm('Do you want to Active the employee?')) {
-            axios.post(`https://servicesync-backend.onrender.com/employee/activeEmployee`, data)
+            axios.post(`https://servicesync-backend.vercel.app/employee/activeEmployee`, data)
                 .then((response) => {
                     // Set the fetched customer data in the state
                     // setCustomers(response.data);
                     console.log(response.data)
                     //   Fetc();
-                    axios.post(`https://servicesync-backend.onrender.com/employee/getEmployee`)
+                    axios.post(`https://servicesync-backend.vercel.app/employee/getEmployee`)
                         .then((response) => {
                             // Set the fetched customer data in the state
                             // setCustomers(response.data);
@@ -91,7 +91,7 @@ const Employee = () => {
 
     useEffect(() => {
   
-        axios.post(`https://servicesync-backend.onrender.com/Employee/getEmployee`)
+        axios.post(`https://servicesync-backend.vercel.app/Employee/getEmployee`)
             .then((response) => {
         
                 empdatachange(response.data);

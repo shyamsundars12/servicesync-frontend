@@ -41,7 +41,7 @@ export default function AddEmployee() {
  
   const checkEmailExists = async (email) => {
     try {
-      const response = await axios.post(`https://servicesync-backend.onrender.com/employee/getEmployeeByEmail`, email);
+      const response = await axios.post(`https://servicesync-backend.vercel.app/employee/getEmployeeByEmail`, email);
       return response.data.mess;
       // console.log(response.data.mess); // Assuming the response contains a property "exists" indicating whether the email exists
     } catch (error) {
@@ -125,7 +125,7 @@ export default function AddEmployee() {
               }
               
       
-              const response = await axios.post('https://servicesync-backend.onrender.com/employee/createEmployee', data);
+              const response = await axios.post('https://servicesync-backend.vercel.app/employee/createEmployee', data);
               Swal.fire({
                 title: 'Employee Added',
                 icon: 'success',

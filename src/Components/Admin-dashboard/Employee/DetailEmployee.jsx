@@ -16,7 +16,7 @@ const DetailEmployee =()=>{
      
     
         // Make a GET request to fetch customer data
-        axios.post(`https://servicesync-backend.onrender.com/employee/getEmployeeById`,data)
+        axios.post(`https://servicesync-backend.vercel.app/employee/getEmployeeById`,data)
           .then((response) => {
        
             console.log(response.data)
